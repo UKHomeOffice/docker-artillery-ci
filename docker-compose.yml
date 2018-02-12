@@ -1,0 +1,26 @@
+version: "3"
+services:
+  dummy-server:
+    ports:
+      - "80:3000"
+    image: heroku/nodejs-hello-world
+  perf-test:
+    build: .
+    environment:
+      MAX_LATENCY: 1000
+      MIN_RPS: 200
+      TEST_CONFIG: |-
+        config:
+          target: http://dummy-server:3000
+          phases:
+            - duration: 1
+              arrivalRate: 10
+              rampTo: 50
+              name: "Warm up the application"
+            - duration: 6
+              arrivalRate: 500
+              name: "Sustained max load"
+        scenarios:
+          - flow:
+            - get:
+                url: '/'
