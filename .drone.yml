@@ -1,6 +1,6 @@
 matrix:
   NAME:
-    - ukhomeofficedigital/artilleryci
+    - ukhomeofficedigital/artillery-ci
   DOCKER_USERNAME:
     - ukhomeofficedigital+artilleryci
   DOCKER_REPO:
