@@ -1,0 +1,25 @@
+matrix:
+  NAME:
+    - ukhomeofficedigital/artilleryci
+  DOCKER_USERNAME:
+    - ukhomeofficedigital+artilleryci
+  DOCKER_REPO:
+    - quay.io
+
+pipeline:
+  build_image:
+    image: ukhomeoffice/drone-docker
+    repo: '${DOCKER_REPO}/${NAME}'
+    dry_run: true
+    when:
+      event: pull_request
+
+  push_image_to_quay:
+    image: ukhomeoffice/drone-docker
+    auto_tag: true
+    secrets: [ docker_password ]
+    username: '${DOCKER_USERNAME}'
+    repo: '${DOCKER_REPO}/${NAME}'
+    registry: '${DOCKER_REPO}'
+    when:
+      event: tag

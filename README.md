@@ -8,7 +8,7 @@ The goal for this project is to dockerise [artillery] and make it give exit code
 Getting started
 ---------------
 
-Make sure you have [Docker] and [Docker Compose] installed on your system
+Make sure you have [Docker] and [DockerCompose] installed on your system
 and run:
 
 ```bash
