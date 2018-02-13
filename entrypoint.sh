@@ -26,7 +26,7 @@ if [[ $(cat output.json | jq ".aggregate.codes|keys[]|select(startswith(\"5\"))"
   echo $(cat output.json | jq ".aggregate.codes") && exit 1;
 fi;
 
-if [[ $(cat output.json | jq ".aggregate|has(\"errors\")") ]]; then
+if [[ $(cat output.json | jq ".aggregate.errors|length > 0") ]]; then
   echo "The tests completed with errors";
   echo $(cat output.json | jq ".aggregate.errors") && exit 1;
 fi;
