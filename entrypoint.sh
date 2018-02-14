@@ -11,12 +11,12 @@ echo "$TEST_CONFIG" > config.yml;
 
 artillery run config.yml -o output.json;
 
-if [[ -z "${MAX_LATENCY}" ]]; then
+if [[ -n "${MAX_LATENCY}" ]]; then
   echo "Will test for threshold MAX_LATENCY";
   withinLimit $(cat output.json | jq .aggregate.latency.max) "${MAX_LATENCY}" "MAX_LATENCY";
 fi;
 
-if [[ -z "${MIN_RPS}" ]]; then
+if [[ -n "${MIN_RPS}" ]]; then
   echo "Will test for threshold MIN_RPS";
   withinLimit "${MIN_RPS}" $(cat output.json | jq .aggregate.rps.count) "MIN_RPS";
 fi;
