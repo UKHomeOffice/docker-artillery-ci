@@ -16,6 +16,11 @@ if [[ -n "${MAX_LATENCY}" ]]; then
   withinLimit $(cat output.json | jq .aggregate.latency.max) "${MAX_LATENCY}" "MAX_LATENCY";
 fi;
 
+if [[ -n "${MEDIAN_LATENCY}" ]]; then
+  echo "Will test for threshold MEDIAN_LATENCY";
+  withinLimit $(cat output.json | jq .aggregate.latency.median) "${MEDIAN_LATENCY}" "MEDIAN_LATENCY";
+fi;
+
 if [[ -n "${MIN_RPS}" ]]; then
   echo "Will test for threshold MIN_RPS";
   withinLimit "${MIN_RPS}" $(cat output.json | jq .aggregate.rps.count) "MIN_RPS";

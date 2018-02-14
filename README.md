@@ -24,6 +24,7 @@ Configuration is available using environment variables in order to configure the
 
 ```
 MAX_LATENCY: <The maximum response latency threshold allowed before failing (in ms)>
+MEDIAN_LATENCY: <The median response latency threshold allowed before failing (in ms)>
 MIN_RPS: <The minimum rps threshold allowed before failing>
 TEST_CONFIG: <The artillery config. This will be used when running the performance tests.>
 ```
