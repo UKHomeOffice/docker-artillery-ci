@@ -39,12 +39,12 @@ See also the list of [contributors] who participated in this project.
 License
 -------
 
-This project is licensed under the MIT License - see the [LICENSE.md]
+This project is licensed under the MIT License - see the [LICENSE]
 file for details.
 
 [contributors]:              https://github.com/UKHomeOffice/docker-artillery-ci/graphs/contributors
 [easternbloc]:               https://github.com/easternbloc
 [Docker]:                    https://www.docker.com/
 [DockerCompose]:             https://docs.docker.com/compose/
-[LICENSE.md]:                LICENSE.md
+[LICENSE]:                   LICENSE
 [Artillery]:                 https://artillery.io/
