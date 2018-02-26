@@ -1,6 +1,14 @@
 #! /bin/bash
 set -e
 
+if [[ -s "${WAIT_URL}" ]]; then
+  echo "Waiting for ${WAIT_URL} to become available"
+  until $(curl --output /dev/null --silent --head --fail ${WAIT_URL}); do
+    printf '...'
+    sleep 5
+  done
+fi;
+
 function withinLimit () {
   if (( $(echo "${1} > ${2}" | bc -l) )); then
     echo "Limit failed for ${3}" && exit 1;

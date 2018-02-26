@@ -27,6 +27,7 @@ MAX_LATENCY: <The maximum response latency threshold allowed before failing (in 
 MEDIAN_LATENCY: <The median response latency threshold allowed before failing (in ms)>
 MIN_RPS: <The minimum rps threshold allowed before failing>
 TEST_CONFIG: <The artillery config. This will be used when running the performance tests.>
+WAIT_URL: <Will wait for the WAIT_URL to become available if set>
 ```
 
 Authors
