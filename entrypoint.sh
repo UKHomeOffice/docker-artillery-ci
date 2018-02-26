@@ -1,14 +1,12 @@
 #! /bin/bash
 set -e
 
-if [[ -n "${WAIT_URL}" ]]; then
+if [[ -s "${WAIT_URL}" ]]; then
   echo "Waiting for ${WAIT_URL} to become available"
-  eval curl -fs "${WAIT_URL}" &> /dev/null;
-  while [ $$? -ne 0 ]; do \
-    echo "..."; \
-    sleep 5; \
-    eval curl -fs "${WAIT_URL}" &> /dev/null;
-  done; true
+  until $(curl --output /dev/null --silent --head --fail ${WAIT_URL}); do
+    printf '...'
+    sleep 5
+  done
 fi;
 
 function withinLimit () {
