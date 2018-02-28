@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
 
-if [[ -s "${WAIT_URL}" ]]; then
+if [[ -n "${WAIT_URL}" ]]; then
   echo "Waiting for ${WAIT_URL} to become available"
   until $(curl --output /dev/null --silent --head --fail ${WAIT_URL}); do
     printf '...'
