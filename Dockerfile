@@ -2,7 +2,7 @@ FROM node:8-alpine
 
 RUN npm install -g artillery && \
     apk update --no-cache -q && \
-    apk add jq bc bash
+    apk add jq bc bash curl
 
 VOLUME /artillery
 WORKDIR /artillery
